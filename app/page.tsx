@@ -23,9 +23,54 @@ import {
   X,
 } from 'lucide-react';
 
+// ─── Interfaces ───────────────────────────────────────────────────────────────
+
+interface Feature {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  /** Background colour of the icon wrapper (rgba string) */
+  color: string;
+  /** Box-shadow glow colour for the icon wrapper (rgba string) */
+  glow: string;
+  /** Icon / accent colour (hex string) */
+  accent: string;
+}
+
+interface Vehicle {
+  name: string;
+  tag: string;
+  image: string;
+  price: string;
+  period: string;
+  features: string[];
+  accentColor: string;
+  glowColor: string;
+  gradient: string;
+  /** Highlights this card as the most popular option */
+  featured?: boolean;
+}
+
+interface Testimonial {
+  name: string;
+  role: string;
+  text: string;
+  rating: number;
+  /** Two-letter initials for the avatar circle */
+  avatar: string;
+  /** Background colour of the avatar circle (rgba string) */
+  color: string;
+}
+
+interface Stat {
+  value: string;
+  label: string;
+  icon: React.ElementType;
+}
+
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const features = [
+const features: Feature[] = [
   {
     icon: Shield,
     title: 'Insurance Included',
@@ -76,7 +121,7 @@ const features = [
   },
 ];
 
-const vehicles = [
+const vehicles: Vehicle[] = [
   {
     name: 'Economy',
     tag: 'Best Value',
@@ -113,7 +158,7 @@ const vehicles = [
   },
 ];
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     name: 'Sanil Surve',
     role: 'Business Traveler',
@@ -140,7 +185,7 @@ const testimonials = [
   },
 ];
 
-const stats = [
+const stats: Stat[] = [
   { value: '5+', label: 'Pickup Locations', icon: MapPin },
   { value: '10+', label: 'Cars Available', icon: Car },
   { value: '500+', label: 'Happy Customers', icon: Users },
