@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
   ArrowRight,
   Check,
@@ -79,7 +80,7 @@ const vehicles = [
   {
     name: 'Economy',
     tag: 'Best Value',
-    emoji: '🚗',
+    image: '/car.jpeg',
     price: '₹2,500',
     period: 'per day',
     features: ['Fuel Efficient', 'Perfect for City', 'Manual / Automatic', 'AC Fitted'],
@@ -90,7 +91,7 @@ const vehicles = [
   {
     name: 'SUV',
     tag: 'Most Popular',
-    emoji: '🚙',
+    image: '/car.jpeg',
     price: '₹3,500',
     period: 'per day',
     features: ['4WD Available', 'Spacious Interior', 'Comfortable Seats', 'Sunroof'],
@@ -102,7 +103,7 @@ const vehicles = [
   {
     name: 'Luxury',
     tag: 'Premium',
-    emoji: '🏎️',
+    image: '/car.jpeg',
     price: '₹5,500',
     period: 'per day',
     features: ['Premium Features', 'Latest Tech', 'Maximum Comfort', 'Chauffeur Ready'],
@@ -404,8 +405,8 @@ export default function Home() {
                               key={type}
                               onClick={() => setActiveVehicle(i)}
                               className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border ${activeVehicle === i
-                                  ? 'border-violet-500/60 bg-violet-500/20 text-violet-300'
-                                  : 'border-white/10 bg-white/5 text-white/40 hover:bg-white/10 hover:text-white/70'
+                                ? 'border-violet-500/60 bg-violet-500/20 text-violet-300'
+                                : 'border-white/10 bg-white/5 text-white/40 hover:bg-white/10 hover:text-white/70'
                                 }`}
                             >
                               {type}
@@ -534,8 +535,8 @@ export default function Home() {
                 <div
                   key={vehicle.name}
                   className={`glass-card relative overflow-hidden transition-all duration-500 cursor-pointer ${vehicle.featured
-                      ? 'ring-1 ring-violet-500/40 scale-[1.02]'
-                      : 'glass-card-hover'
+                    ? 'ring-1 ring-violet-500/40 scale-[1.02]'
+                    : 'glass-card-hover'
                     }`}
                   style={{
                     boxShadow: vehicle.featured
@@ -554,19 +555,26 @@ export default function Home() {
                   )}
 
                   {/* Car visual area */}
-                  <div
-                    className="h-52 flex items-center justify-center relative overflow-hidden"
-                    style={{ background: vehicle.gradient }}
-                  >
-                    {/* Glow behind emoji */}
+                  <div className="h-52 relative overflow-hidden">
+                    <Image
+                      src={vehicle.image}
+                      alt={`${vehicle.name} car`}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    {/* Gradient tint overlay */}
                     <div
-                      className="absolute w-32 h-32 rounded-full blur-3xl"
+                      className="absolute inset-0"
+                      style={{ background: vehicle.gradient }}
+                      aria-hidden="true"
+                    />
+                    {/* Glow orb */}
+                    <div
+                      className="absolute bottom-0 right-0 w-28 h-28 rounded-full blur-3xl"
                       style={{ background: vehicle.glowColor }}
                       aria-hidden="true"
                     />
-                    <span className="text-8xl relative float-animation" style={{ animationDelay: `${index * 2}s` }}>
-                      {vehicle.emoji}
-                    </span>
                   </div>
 
                   {/* Card body */}
@@ -604,8 +612,8 @@ export default function Home() {
                     <button
                       id={`book-${vehicle.name.toLowerCase()}-btn`}
                       className={`w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${vehicle.featured
-                          ? 'btn-glass-primary'
-                          : 'btn-glass-outline hover:border-white/30'
+                        ? 'btn-glass-primary'
+                        : 'btn-glass-outline hover:border-white/30'
                         }`}
                     >
                       Book {vehicle.name}
