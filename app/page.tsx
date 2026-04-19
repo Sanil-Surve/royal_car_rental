@@ -140,9 +140,9 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: '50+', label: 'Pickup Locations', icon: MapPin },
-  { value: '500+', label: 'Cars Available', icon: Car },
-  { value: '10K+', label: 'Happy Customers', icon: Users },
+  { value: '5+', label: 'Pickup Locations', icon: MapPin },
+  { value: '10+', label: 'Cars Available', icon: Car },
+  { value: '500+', label: 'Happy Customers', icon: Users },
   { value: '24/7', label: 'Customer Support', icon: Clock },
 ];
 
@@ -403,11 +403,10 @@ export default function Home() {
                             <button
                               key={type}
                               onClick={() => setActiveVehicle(i)}
-                              className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border ${
-                                activeVehicle === i
+                              className={`flex-1 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border ${activeVehicle === i
                                   ? 'border-violet-500/60 bg-violet-500/20 text-violet-300'
                                   : 'border-white/10 bg-white/5 text-white/40 hover:bg-white/10 hover:text-white/70'
-                              }`}
+                                }`}
                             >
                               {type}
                             </button>
@@ -448,9 +447,8 @@ export default function Home() {
               {stats.map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`flex flex-col items-center justify-center py-8 px-4 text-center transition-all duration-300 hover:bg-white/5 ${
-                    i < stats.length - 1 ? 'border-r border-white/[0.06]' : ''
-                  } ${i >= 2 ? 'border-t border-white/[0.06] md:border-t-0' : ''}`}
+                  className={`flex flex-col items-center justify-center py-8 px-4 text-center transition-all duration-300 hover:bg-white/5 ${i < stats.length - 1 ? 'border-r border-white/[0.06]' : ''
+                    } ${i >= 2 ? 'border-t border-white/[0.06] md:border-t-0' : ''}`}
                 >
                   <stat.icon className="w-5 h-5 text-violet-400 mb-2 opacity-70" />
                   <span className="text-3xl md:text-4xl font-extrabold gradient-text">{stat.value}</span>
@@ -535,11 +533,10 @@ export default function Home() {
               {vehicles.map((vehicle, index) => (
                 <div
                   key={vehicle.name}
-                  className={`glass-card relative overflow-hidden transition-all duration-500 cursor-pointer ${
-                    vehicle.featured
+                  className={`glass-card relative overflow-hidden transition-all duration-500 cursor-pointer ${vehicle.featured
                       ? 'ring-1 ring-violet-500/40 scale-[1.02]'
                       : 'glass-card-hover'
-                  }`}
+                    }`}
                   style={{
                     boxShadow: vehicle.featured
                       ? `0 25px 80px rgba(0,0,0,0.5), 0 0 60px ${vehicle.glowColor}, inset 0 1px 0 rgba(255,255,255,0.12)`
@@ -606,11 +603,10 @@ export default function Home() {
 
                     <button
                       id={`book-${vehicle.name.toLowerCase()}-btn`}
-                      className={`w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
-                        vehicle.featured
+                      className={`w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${vehicle.featured
                           ? 'btn-glass-primary'
                           : 'btn-glass-outline hover:border-white/30'
-                      }`}
+                        }`}
                     >
                       Book {vehicle.name}
                       <ArrowRight className="w-4 h-4" />
