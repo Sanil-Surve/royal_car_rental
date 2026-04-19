@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -14,7 +13,6 @@ import {
   MapPinIcon,
   Phone,
   Mail,
-  ChevronRight,
 } from 'lucide-react';
 
 export default function Home() {
@@ -33,7 +31,6 @@ export default function Home() {
             <div className="hidden md:flex gap-8">
               <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
               <a href="#vehicles" className="text-gray-600 hover:text-gray-900">Vehicles</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
               <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
             </div>
             <Button className="bg-blue-600 hover:bg-blue-700">Sign In</Button>
@@ -195,19 +192,19 @@ export default function Home() {
               {
                 name: 'Economy',
                 image: '🚗',
-                price: '$35/day',
+                price: '₹2500/day',
                 features: ['Fuel Efficient', 'Perfect for City', 'Manual/Automatic'],
               },
               {
                 name: 'SUV',
                 image: '🚙',
-                price: '$75/day',
+                price: '₹3500/day',
                 features: ['4WD Available', 'Spacious Interior', 'Comfortable'],
               },
               {
                 name: 'Luxury',
                 image: '🚓',
-                price: '$150/day',
+                price: '₹5500/day',
                 features: ['Premium Features', 'Latest Tech', 'Maximum Comfort'],
               },
             ].map((vehicle, index) => (
@@ -247,19 +244,19 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: 'John Anderson',
+                name: 'Sanil Surve',
                 role: 'Business Traveler',
                 text: 'Royal Rentals made my business trip so much easier. The booking process was seamless and the car was perfect.',
                 rating: 5,
               },
               {
-                name: 'Sarah Mitchell',
+                name: 'Sagar Puthran',
                 role: 'Family Vacationer',
                 text: 'Excellent service! The entire family loved the spacious SUV. Will definitely rent again on our next trip.',
                 rating: 5,
               },
               {
-                name: 'Mike Chen',
+                name: 'Ramesh Yadav',
                 role: 'Weekend Explorer',
                 text: 'Great prices, well-maintained vehicles, and amazing customer support. Highly recommended!',
                 rating: 5,
@@ -282,54 +279,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 md:py-28 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-lg text-gray-600">
-              No hidden charges. What you see is what you pay.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { duration: 'Hourly', price: 'From $15/hr', features: ['1-4 Hours', 'Perfect for Errands', 'Local Trips'] },
-              { duration: 'Daily', price: '$35/day', features: ['1-6 Days', 'Best for Short Trips', 'Flexible Return'], highlight: true },
-              { duration: 'Weekly', price: '$200/week', features: ['7-29 Days', 'Save 20%', 'Free Upgrade'] },
-              { duration: 'Monthly', price: '$800/month', features: ['30+ Days', 'Save 50%', 'Premium Support'] },
-            ].map((plan, index) => (
-              <div
-                key={index}
-                className={`rounded-xl p-6 border transition-all ${plan.highlight
-                  ? 'border-blue-600 bg-white shadow-lg scale-105'
-                  : 'border-gray-200 bg-white'
-                  }`}
-              >
-                {plan.highlight && (
-                  <span className="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
-                    POPULAR
-                  </span>
-                )}
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.duration}</h3>
-                <p className="text-2xl font-bold text-blue-600 mb-4">{plan.price}</p>
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-gray-600 text-sm">
-                      <ChevronRight className="w-4 h-4 text-blue-600" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button className={plan.highlight ? 'w-full bg-blue-600 hover:bg-blue-700' : 'w-full border border-blue-600 text-blue-600 hover:bg-blue-50'}>
-                  Choose Plan
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-gradient-to-r from-blue-600 to-indigo-600">
@@ -364,7 +313,6 @@ export default function Home() {
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-white transition">About Us</a></li>
                 <li><a href="#" className="hover:text-white transition">Fleet</a></li>
-                <li><a href="#" className="hover:text-white transition">Pricing</a></li>
                 <li><a href="#" className="hover:text-white transition">Blog</a></li>
               </ul>
             </div>
